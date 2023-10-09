@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "354773046666",
+    "project_id": "eventer-10",
+    "storage_bucket": "eventer-10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354773046666:android:19bd459ac25660568fa473",
+        "android_client_info": {
+          "package_name": "com.example.eventer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOsP71Hew5YGQvlZolZ_t55PepuCgBL7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

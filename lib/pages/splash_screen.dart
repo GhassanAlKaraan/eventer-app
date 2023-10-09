@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Timer startTimer() {
-    var duration = const Duration(seconds: 10);
+    var duration = const Duration(seconds: 4);
     return Timer(duration, route);
   }
 
@@ -35,7 +35,9 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("Loading...", style: kTxtStyle3,),
+            const Text("Welcome to Eventer", style: kTxtStyle3,),
+            const SizedBox(height: 20,),
+            const Text("by Ghassan", style: kTxtStyle1,),
             const SizedBox(height: 30,),
             CalendarAnimation(),
           ],
