@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:eventer/animations/calendar_anim.dart';
+import 'package:eventer/utility/constants.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Timer startTimer() {
-    var duration = const Duration(seconds: 5);
+    var duration = const Duration(seconds: 10);
     return Timer(duration, route);
   }
 
@@ -34,10 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("Welcome Fam", style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),),
+            const Text("Loading...", style: kTxtStyle3,),
             const SizedBox(height: 30,),
             CalendarAnimation(),
           ],

@@ -22,7 +22,7 @@ class MyButton2 extends StatelessWidget {
           child: Text(
             text,
             style: const TextStyle(
-              color: Colors.indigoAccent,
+              color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),

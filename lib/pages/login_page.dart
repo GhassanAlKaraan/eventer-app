@@ -1,5 +1,6 @@
 import 'package:eventer/components/my_button.dart';
 import 'package:eventer/components/my_textfield.dart';
+import 'package:eventer/utility/constants.dart';
 import 'package:eventer/utility/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo[50],
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -41,6 +43,10 @@ class _LoginPageState extends State<LoginPage> {
                     fit: BoxFit.contain,
                   ), //todo: import image
                 ),
+                const SizedBox(
+                  height: 48,
+                ),
+                const Text("Welcome", style: kTxtStyle2),
                 const SizedBox(
                   height: 48,
                 ),
