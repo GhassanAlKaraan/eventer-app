@@ -4,7 +4,7 @@ enum AuthResultStatus {
   wrongPassword,
   invalidEmail,
   userNotFound,
-  userDisabled,
+  invalidLoginCredentials,
   operationNotAllowed,
   tooManyRequests,
   undefined,

@@ -21,7 +21,7 @@ class Utility {
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius:
-                BorderRadius.circular(20.0), // Adjust the radius as needed
+                BorderRadius.circular(8.0), // Adjust the radius as needed
           ),
           title: Text(
             message,
@@ -34,12 +34,12 @@ class Utility {
                 TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor:
-                        Colors.blue, // Change the button text color
+                        Color(0xff214183), // Change the button text color
                   ),
                   child: const Text(
                     'Got it',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold, // Make the button text bold
                     ),
                   ),
@@ -64,7 +64,7 @@ class Utility {
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius:
-            BorderRadius.circular(20.0), // Adjust the radius as needed
+            BorderRadius.circular(8.0), // Adjust the radius as needed
           ),
           title: Text(message),
           content: const Text(
@@ -78,7 +78,7 @@ class Utility {
                 TextButton(
                   child: const Text(
                     'Cancel',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, color: Color(0xff214183),),
                   ),
                   onPressed: () {
                     Navigator.of(context).pop(); // Close the dialog
@@ -87,7 +87,7 @@ class Utility {
                 TextButton(
                   child: const Text(
                     'YES',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 18, color: Color(0xff214183),),
                   ),
                   onPressed: () {
                     // Add your OK button action here

@@ -1,11 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'auth_exception_handler.dart';
-import 'auth_results_status.dart';
+import 'auth_exceptions/auth_exception_handler.dart';
+import 'auth_exceptions/auth_results_status.dart';
 
 class FirebaseAuthHelper {
   final _auth = FirebaseAuth.instance;
   late AuthResultStatus _status;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
 
   ///
   /// Helper Functions

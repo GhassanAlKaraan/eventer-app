@@ -3,14 +3,10 @@ import 'package:eventer/components/my_button.dart';
 import 'package:eventer/components/my_textfield.dart';
 import 'package:eventer/utility/constants.dart';
 import 'package:eventer/utility/utils.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-
-import '../other/auth_exception_handler.dart';
-import '../other/auth_results_status.dart';
-import '../other/firebase_auth_helper.dart';
-import '../services/auth_service.dart';
+import '../services/firebase/auth/auth_exceptions/auth_exception_handler.dart';
+import '../services/firebase/auth/auth_exceptions/auth_results_status.dart';
+import '../services/firebase/auth/firebase_auth_helper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -31,35 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  // Future<void> login() async {
-  //   //Get the values from the text fields
-  //   final email = emailController.text.trim();
-  //   final password = passwordController.text.trim();
-  //   if (email.isEmpty || password.isEmpty) {
-  //     Utility.showSnackBar(context, "Please fill in all fields");
-  //     return;
-  //   }
-  //
-  //   try {
-  //     await context
-  //         .read<AuthService>()
-  //         .signInWithEmailAndPassword(email, password);
-  //
-  //   }on FirebaseAuth catch (e) {
-  //     Utility.showSnackBar(context, '$e.code');
-  //
-  //     // if (e.code == 'user-not-found') {
-  //     //   Utility.showAlert(context, "User not found");
-  //     // } else if (e.code == 'invalid-email') {
-  //     //   Utility.showAlert(context, "Invalid email.");
-  //     // } else {
-  //     //   Utility.showAlert(context, "Check your credentials.");
-  //     // }
-  //   }
-  //
-  // }
-
-  _login() async {
+  void _login() async {
     _toggleButtonState();
 
     final email = emailController.text.trim();
@@ -72,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
-      //todo: use the provider auth service
+      //clean up code.
       final status =
           await FirebaseAuthHelper().login(email: email, pass: password);
 
@@ -115,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       fit: BoxFit.contain),
                 ),
                 const SizedBox(height: 48),
-                const Text("Welcome", style: kTxtStyle2),
+                const Text("Members Only", style: kTxtStyle2),
                 const SizedBox(height: 48),
                 MyTextField(
                   isObscure: false,
@@ -130,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 const SizedBox(height: 52),
                 isButtonClicked
-                    ? LoadingButton(text: "Loading", onTap: () {})
+                    ? const LoadingButton(text: "Loading")
                     : MyButton(text: "Log In", onTap: _login),
               ],
             ),
