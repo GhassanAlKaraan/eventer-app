@@ -28,11 +28,11 @@ class EventModel {
 
 Map<String, dynamic> toMap() {
   return {
-    'title': title,
-    'description': description,
-    'place': place,
+    'title': title, ///check.
+    'description': description, ///check.
+    'place': place, //todo: either get place from dropdown or from input
     'timestamp': Timestamp.now(), //todo: format date from input
-    'type': type,
+    'type': type,  //todo: get type from dropdown
   };
 }
 }
