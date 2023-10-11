@@ -1,3 +1,4 @@
+import 'package:eventer/pages/create_event_page.dart';
 import 'package:eventer/pages/home_page.dart';
 import 'package:eventer/services/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -14,7 +15,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,16 +22,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.indigo,
+        scaffoldBackgroundColor: Colors.indigo[50],
       ),
 
       ///pages still to be added
       routes: {
         '/': (_) => const SplashScreen(),
         '/auth': (_) => const AuthGate(),
-        '/home': (_) => HomePage(),
+        '/home': (_) => const HomePage(),
         // '/events': (_) => EventsPage(),
         // '/eventdetails': (_) => EventDetailsPage(),
-        // '/createevent': (_) => CreateEvent(),
+        '/createevent': (_) => const CreateEventPage(),
       },
 
 

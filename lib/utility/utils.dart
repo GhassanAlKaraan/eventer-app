@@ -103,10 +103,10 @@ class Utility {
     );
   }
 
-  // static void launchPage(BuildContext context, Widget page) {
-  //   Navigator.of(context).push(MaterialPageRoute(
-  //       builder: (context) => page));
-  // }
+  static void launchPage(BuildContext context, Widget page) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => page));
+  }
 
   // static void routeTo(BuildContext context, String routeName) {
   //   Navigator.pushReplacementNamed(context, routeName);

@@ -1,4 +1,7 @@
+import 'package:eventer/components/my_button2.dart';
+import 'package:eventer/pages/create_event_page.dart';
 import 'package:eventer/services/firebase/auth/firebase_auth_helper.dart';
+import 'package:eventer/utility/constants.dart';
 import 'package:eventer/utility/utils.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   void signOut() {
     FirebaseAuthHelper().logout();
   }
-
 
   //End of Sign out method
   @override
@@ -32,14 +33,18 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: const Center(
-          child: Text(
-        "Home Page",
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text("Home Page", style: kTxtStyle3),
+          const SizedBox(height: 10.0),
+          MyButton2(
+              text: "Create Event",
+              onTap: () {
+                Utility.launchPage(context, const CreateEventPage());
+              }),
+        ],
       )),
     );
   }

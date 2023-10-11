@@ -1,56 +1,56 @@
-//import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../../models/event_model.dart';
 
-//todo: need to modify this to work with the new event model
-///Caution: we're gonna have to format the date of event to work with firestore
-// class FirestoreService {
-//   // Collection Reference
-//   final CollectionReference _notes =
-//       FirebaseFirestore.instance.collection('notes');
-//
-//   // CREATE
-//   Future<void> createNote(Note note) async {
-//     return await _notes
-//         .add(note.toMap()) //firestore add() takes a map, http post takes json
-//         .then((value) => print("Note Added"))
-//         .catchError((_) {
-//       print("Could not add note");
-//     });
-//   }
-//
-//   //UPDATE
-//   Future<void> updateNote(String docId, Note note) async {
-//     return await _notes
-//         .doc(docId)
-//         .update(note.toMap())
-//         .then((value) => print("Note Updated"))
-//         .catchError((_) {
-//       print("Could not update note");
-//     });
-//   }
-//
-//
-//   // READ
-//   // Stream is used to listen to changes in the database.
-//   Stream<QuerySnapshot> getNotesStream() {
-//     return _notes.orderBy('createdAt', descending: false).snapshots();
-//   }
-//
-//   // DELETE
-//   Future<void> deleteNote(String docId) async {
-//     return await _notes
-//         .doc(docId)
-//         .delete()
-//         .then((value) => print("Note Deleted"))
-//         .catchError((_) {
-//       print("Could not delete note");
-//     });
-//   }
-//
-//   //Get a single note
-//   Future<String> getNoteById(String docId) async {
-//     DocumentSnapshot ds = await _notes.doc(docId).get();
-//     final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;
-//     return map['text'].toString();
-//   }
-//
-// }
+
+class FirestoreService {
+
+  /// Events Collection Reference
+  final CollectionReference _events =
+      FirebaseFirestore.instance.collection('events');
+
+  // CREATE
+  Future<void> createEvent(EventModel event) async {
+    return await _events
+        .add(event.toMap())
+        .then((value) => print("Event Added"))
+        .catchError((_) {
+      print("Could not add Event");
+    });
+  }
+
+  //UPDATE
+  Future<void> updateEvent(String docId, EventModel event) async {
+    return await _events
+        .doc(docId)
+        .update(event.toMap())
+        .then((value) => print("Event Updated"))
+        .catchError((_) {
+      print("Could not update note");
+    });
+  }
+
+  // READ
+  // Stream is used to listen to changes in the database.
+  Stream<QuerySnapshot> getEventsStream() {
+    return _events.orderBy('timestamp', descending: true).snapshots();
+  }
+
+  // DELETE
+  Future<void> deleteEvent(String docId) async {
+    return await _events
+        .doc(docId)
+        .delete()
+        .then((value) => print("Event Deleted"))
+        .catchError((_) {
+      print("Could not delete event");
+    });
+  }
+
+  //Get a single note
+  Future<String> getEventById(String docId) async {
+    DocumentSnapshot ds = await _events.doc(docId).get();
+    final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;
+    return map['text'].toString();
+  }
+
+}

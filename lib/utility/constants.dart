@@ -9,7 +9,7 @@ const TextStyle kTxtStyle1 = TextStyle(
 );
 
 const TextStyle kTxtStyle2 = TextStyle(
-  fontSize: 22.0,
+  fontSize: 20.0,
   fontWeight: FontWeight.bold,
   color: Colors.black,
   // Add other text style properties as needed
