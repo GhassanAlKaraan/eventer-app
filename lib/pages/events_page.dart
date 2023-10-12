@@ -96,10 +96,10 @@ class EventType extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 5.0),
         decoration: BoxDecoration(
-          // borderRadius: const BorderRadius.only(
-          //   topLeft: Radius.circular(8.0),
-          //   bottomLeft: Radius.circular(8.0),
-          // ),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(8.0),
+            bottomLeft: Radius.circular(8.0),
+          ),
           color: index % 2 == 0
               ? Colors.indigoAccent
               : Colors.indigo[400],
@@ -135,7 +135,7 @@ class HorizontalSliceClipper extends CustomClipper<Path> {
     path.lineTo(size.width, 0); // Move to 5% from the right edge
     path.lineTo(size.width * 0.85, size.height); // Move down to the same point
     path.lineTo(0, size.height);
-    path.lineTo(size.width * 0.15, 0);
+    // path.lineTo(size.width * 0.15, 0);
     return path;
   }
 
