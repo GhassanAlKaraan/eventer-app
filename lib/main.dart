@@ -4,6 +4,7 @@ import 'package:eventer/services/auth_gate.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'firebase_options.dart';
+import 'pages/events_page.dart';
 import 'pages/splash_screen.dart';
 
 void main() async {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
         '/': (_) => const SplashScreen(),
         '/auth': (_) => const AuthGate(),
         '/home': (_) => const HomePage(),
-        // '/events': (_) => EventsPage(),
+        '/events': (_) => const EventsPage(),
         // '/eventdetails': (_) => EventDetailsPage(),
         '/createevent': (_) => const CreateEventPage(),
       },

@@ -8,7 +8,7 @@ class FirestoreService {
   final CollectionReference _events =
       FirebaseFirestore.instance.collection('events');
 
-  // CREATE
+  /// CREATE
   Future<void> createEvent(EventModel event) async {
     return await _events
         .add(event.toMap())
@@ -18,7 +18,7 @@ class FirestoreService {
     });
   }
 
-  //UPDATE
+  ///UPDATE
   Future<void> updateEvent(String docId, EventModel event) async {
     return await _events
         .doc(docId)
@@ -29,13 +29,13 @@ class FirestoreService {
     });
   }
 
-  // READ
+  /// READ
   // Stream is used to listen to changes in the database.
   Stream<QuerySnapshot> getEventsStream() {
     return _events.orderBy('timestamp', descending: true).snapshots();
   }
 
-  // DELETE
+  /// DELETE
   Future<void> deleteEvent(String docId) async {
     return await _events
         .doc(docId)
@@ -46,7 +46,7 @@ class FirestoreService {
     });
   }
 
-  //Get a single note
+  ///Get a single event
   Future<String> getEventById(String docId) async {
     DocumentSnapshot ds = await _events.doc(docId).get();
     final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;

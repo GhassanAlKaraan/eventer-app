@@ -5,6 +5,8 @@ import 'package:eventer/utility/constants.dart';
 import 'package:eventer/utility/utils.dart';
 import 'package:flutter/material.dart';
 
+import 'events_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -43,6 +45,12 @@ class _HomePageState extends State<HomePage> {
               text: "Create Event",
               onTap: () {
                 Utility.launchPage(context, const CreateEventPage());
+              }),
+          const SizedBox(height: 10.0),
+          MyButton2(
+              text: "See Events",
+              onTap: () {
+                Utility.launchPage(context, const EventsPage());
               }),
         ],
       )),

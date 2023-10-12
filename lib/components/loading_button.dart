@@ -8,8 +8,8 @@ class LoadingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(20),
-      width: 200,
+      padding: const EdgeInsets.all(10),
+      width: MediaQuery.of(context).size.width * 0.38,
       margin: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),

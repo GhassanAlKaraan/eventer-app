@@ -34,7 +34,7 @@ class Utility {
                 TextButton(
                   style: TextButton.styleFrom(
                     foregroundColor:
-                        Color(0xff214183), // Change the button text color
+                        const Color(0xff214183), // Change the button text color
                   ),
                   child: const Text(
                     'Got it',

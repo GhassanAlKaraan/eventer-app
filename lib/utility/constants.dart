@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 
+const TextStyle kTxtStyle0 = TextStyle(
+  fontSize: 21.0,
+  fontWeight: FontWeight.bold,
+  color: Color(0xff214183),
+  // Add other text style properties as needed
+);
+
 const TextStyle kTxtStyle1 = TextStyle(
-  fontSize: 18.0,
+  fontSize: 16.0,
   fontWeight: FontWeight.bold,
   fontStyle: FontStyle.italic,
-  color: Colors.black,
+
+  //color: Colors.black,
+  color: Colors.white,
   // Add other text style properties as needed
 );
 
