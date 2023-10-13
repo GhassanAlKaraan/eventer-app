@@ -14,17 +14,7 @@ class EventModel {
   });
 
 
-  ///Caution: we're gonna have to format the date of event to work with firestore
-
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //     'title': title,
-  //     'description': description,
-  //     'place': place,
-  //     'timestamp': timestamp,
-  //     'type': type,
-  //   };
-  // }
+  //! Caution: we're gonna have to format the date of event to work with firestore
 
 Map<String, dynamic> toMap() {
   return {

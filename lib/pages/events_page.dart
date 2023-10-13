@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eventer/services/firebase/firestore/firestore_service.dart';
 import 'package:eventer/utility/constants.dart';
+import 'package:eventer/utility/utils.dart';
 import 'package:flutter/material.dart';
+
+import 'event_details_page.dart';
 
 class EventsPage extends StatelessWidget {
   const EventsPage({super.key});
@@ -45,28 +48,31 @@ class EventsPage extends StatelessWidget {
                   // the document snapshot is a map
                   DocumentSnapshot ds = docs[index];
                   // to keep track of the notes, we need the document id
-                  // String docId = ds.id; //todo: use this to open the details.
+                  String docId = ds.id; //todo: use this to open the details.
                   // get the text from the map
                   String title = ds['title'];
                   String type = ds['type'];
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: ListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                    child: GestureDetector(
+                      onTap: () => Utility.launchPage(context, EventDetailsPage(id: docId)),
+                      child: ListTile(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        tileColor: Colors.white,
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              title,
+                              style: kTxtStyle0,
+                            ),
+                          ],
+                        ),
+                        leading: EventType(type: type, index: index),
                       ),
-                      tileColor: Colors.white,
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            title,
-                            style: kTxtStyle0,
-                          ),
-                        ],
-                      ),
-                      leading: EventType(type: type, index: index),
                     ),
                   );
                 },
@@ -118,7 +124,7 @@ class EventType extends StatelessWidget {
             const SizedBox(width: 5.0),
             Text(
               type,
-              style: kTxtStyle1,
+              style: kTxtStyle1w,
             ),
           ],
         ),

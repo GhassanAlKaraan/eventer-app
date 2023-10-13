@@ -17,10 +17,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   void signOut() {
     FirebaseAuthHelper().logout();
-    
-  }
+  }//End of Sign out method
 
-  //End of Sign out method
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

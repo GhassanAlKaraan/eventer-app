@@ -47,10 +47,10 @@ class FirestoreService {
   }
 
   ///Get a single event
-  Future<String> getEventById(String docId) async {
+  Future<Map<String, dynamic>> getEventById(String docId) async {
     DocumentSnapshot ds = await _events.doc(docId).get();
     final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;
-    return map['text'].toString();
+    return map;
   }
 
 }

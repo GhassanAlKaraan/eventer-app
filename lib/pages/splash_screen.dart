@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             const Text("Welcome to Eventer", style: kTxtStyle3,),
             const SizedBox(height: 20,),
-            const Text("by Ghassan", style: kTxtStyle1,),
+            const Text("by Ghassan", style: kTxtStyle1b,),
             const SizedBox(height: 30,),
             CalendarAnimation(),
           ],
