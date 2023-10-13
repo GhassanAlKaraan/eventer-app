@@ -45,7 +45,7 @@ class EventsPage extends StatelessWidget {
                   // the document snapshot is a map
                   DocumentSnapshot ds = docs[index];
                   // to keep track of the notes, we need the document id
-                  String docId = ds.id; //todo: use this to open the details.
+                  // String docId = ds.id; //todo: use this to open the details.
                   // get the text from the map
                   String title = ds['title'];
                   String type = ds['type'];
@@ -111,7 +111,7 @@ class EventType extends StatelessWidget {
           children: [
             const SizedBox(width: 10.0),
             const Icon(
-              Icons.outdoor_grill, //todo: change icon.
+              Icons.add_circle, //todo: change icon.
               color: Colors.white,
               size: 30,
             ),

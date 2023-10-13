@@ -106,25 +106,25 @@ class _CreateEventPageState extends State<CreateEventPage> {
               child: Column(
                 children: [
                   MyTextField(
-                    hintText: 'Event Title',
+                    labelText: 'Event Title',
                     isObscure: false,
                     controller: titleController,
                   ),
                   const SizedBox(height: 20.0),
                   MyTextField(
-                    hintText: 'Event Description',
+                    labelText: 'Event Description',
                     isObscure: false,
                     controller: descriptionController,
                   ),
                   const SizedBox(height: 20.0),
                   MyTextField(
-                    hintText: 'Event Place',
+                    labelText: 'Event Place',
                     isObscure: false,
                     controller: placeController,
                   ),
                   const SizedBox(height: 20.0),
                   MyTextField(
-                    hintText: 'Event Type',
+                    labelText: 'Event Type',
                     isObscure: false,
                     controller: typeController,
                   ),

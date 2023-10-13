@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -13,7 +15,8 @@ class CalendarAnimation extends StatelessWidget {
       width: 300,
       child: Lottie.asset(
         'assets/animations/calendar_animation.json',
-        fit: BoxFit.fill,),
+        fit: BoxFit.fill,
+      ),
     );
   }
 }
