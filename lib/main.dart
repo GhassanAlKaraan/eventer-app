@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.indigo[50],
       ),
 
-      ///pages still to be added
+      /// pages still to be added
       routes: {
         '/': (_) => const SplashScreen(),
         '/auth': (_) => const AuthGate(),
