@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../../models/event_model.dart';
 
-
 class FirestoreService {
+  //********** Working with Events **********//
 
   /// Events Collection Reference
   final CollectionReference _events =
@@ -52,5 +52,4 @@ class FirestoreService {
     final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;
     return map;
   }
-
 }

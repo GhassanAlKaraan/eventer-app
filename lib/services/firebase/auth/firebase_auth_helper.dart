@@ -7,12 +7,10 @@ import 'auth_exceptions/auth_results_status.dart';
 class FirebaseAuthHelper {
   final _auth = FirebaseAuth.instance;
   late AuthResultStatus _status;
+
+  // todo: Add the logged in user info to the database.
   // * final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-
-  ///
-  /// Helper Functions
-  ///
 
   Future<AuthResultStatus> login({email, pass}) async {
     try {
@@ -25,13 +23,12 @@ class FirebaseAuthHelper {
         _status = AuthResultStatus.undefined;
       }
     } catch (e) {
-      print('Exception @createAccount: $e');
       _status = AuthExceptionHandler.handleException(e);
     }
     return _status;
   }
 
-  logout() {
-    _auth.signOut();
+  Future logout() async{
+    await _auth.signOut();
   }
 }

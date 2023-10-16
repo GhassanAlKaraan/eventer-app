@@ -48,7 +48,7 @@ class EventsPage extends StatelessWidget {
                   // the document snapshot is a map
                   DocumentSnapshot ds = docs[index];
                   // to keep track of the notes, we need the document id
-                  String docId = ds.id; //todo: use this to open the details.
+                  String docId = ds.id;
                   // get the text from the map
                   String title = ds['title'];
                   String type = ds['type'];

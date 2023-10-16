@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'events_page.dart';
 
+//todo: design the home page
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
