@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eventer/models/user_model.dart';
 import '../../../models/event_model.dart';
 
 class FirestoreService {
@@ -51,5 +52,28 @@ class FirestoreService {
     DocumentSnapshot ds = await _events.doc(docId).get();
     final Map<String, dynamic> map = ds.data() as Map<String, dynamic>;
     return map;
+  }
+
+  //********** Working with Users **********//
+
+  ///Users collection
+  CollectionReference _users = FirebaseFirestore.instance.collection('users');
+
+  ///CREATE user
+  Future createUser(UserModel user) async {
+    return await _users
+        .doc(user.email)
+        .set(user.toMap())
+        .then((value) => print("User Added"))
+        .catchError((_) {
+      print("Could not add User");
+    });
+  }
+
+  ///READ user
+  Future<Map<String, dynamic>> getUserByEmail(String email) async {
+    DocumentSnapshot ds = await _users.doc(email).get();
+    final Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
+    return data;
   }
 }

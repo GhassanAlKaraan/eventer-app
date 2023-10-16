@@ -1,6 +1,6 @@
 import 'package:eventer/components/my_button2.dart';
+import 'package:eventer/services/firebase/auth/firebase_auth_helper.dart';
 import 'package:eventer/services/firebase/firestore/firestore_service.dart';
-import 'package:eventer/services/firebase/other/current_user.dart';
 import 'package:eventer/utility/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -34,8 +34,7 @@ class _CreateEventPageState extends State<CreateEventPage> {
 
   //* FireStore Instance *//
   final FirestoreService _firestore = FirestoreService();
-
-  final FirebaseCurrentUser _firebaseUser = FirebaseCurrentUser();
+  final FirebaseAuthHelper _authHelper = FirebaseAuthHelper();
 
   bool isButtonClicked = false;
   void _toggleButtonState() {
@@ -45,12 +44,10 @@ class _CreateEventPageState extends State<CreateEventPage> {
   }
 
   bool isLoading = true;
-  String username = "";
+  String _currentUserEmail = "";
 
   void getCurrentUserName() async {
-    print("Getting current user name");
-    username = await _firebaseUser.getUserName();
-    print("Username: $username");
+    _currentUserEmail = await _authHelper.getCurrentUserEmail();
     setState(() {
       isLoading = false;
     });
@@ -79,7 +76,7 @@ class _CreateEventPageState extends State<CreateEventPage> {
       description: descriptionController.text.trim(),
       place: placeController.text.trim(),
       type: typeController.text.trim(),
-      organiser: username, //todo: get current user name
+      organiserEmail: _currentUserEmail, //todo: change to email instead.
     );
     //* Create Event in Firestore *//
     try {
@@ -92,7 +89,6 @@ class _CreateEventPageState extends State<CreateEventPage> {
       _toggleButtonState();
     }
 
-    
     titleController.clear();
     descriptionController.clear();
     placeController.clear();
@@ -142,19 +138,22 @@ class _CreateEventPageState extends State<CreateEventPage> {
                           controller: descriptionController,
                         ),
                         const SizedBox(height: 20.0),
-                        MyTextField( //todo: add dropdown menu
+                        MyTextField(
+                          //todo: add dropdown menu
                           labelText: 'Event Place',
                           isObscure: false,
                           controller: placeController,
                         ),
                         const SizedBox(height: 20.0),
-                        MyTextField( //todo: add dropdown menu
+                        MyTextField(
+                          //todo: add dropdown menu
                           labelText: 'Event Type',
                           isObscure: false,
                           controller: typeController,
                         ),
                         const SizedBox(height: 20.0),
-                        const Text( //todo: add date and time picker
+                        const Text(
+                          //todo: add date and time picker
                           "Event Date and Time (Pending)",
                           style: kTxtStyle2,
                         ),

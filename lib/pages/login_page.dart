@@ -8,7 +8,6 @@ import '../services/firebase/auth/auth_exceptions/auth_exception_handler.dart';
 import '../services/firebase/auth/auth_exceptions/auth_results_status.dart';
 import '../services/firebase/auth/firebase_auth_helper.dart';
 
-//todo: add registration module.
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

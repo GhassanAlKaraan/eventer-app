@@ -6,18 +6,15 @@ class EventModel {
   final String place;
   Timestamp? timestamp;
   final String type;
-  final String organiser;
+  final String organiserEmail;
 
   EventModel({
     required this.type,
     required this.title,
     required this.description,
     required this.place,
-    required this.organiser,
+    required this.organiserEmail,
   });
-
-
-  //! We're gonna have to format the date of event to work with firestore
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,8 +22,8 @@ class EventModel {
       'description': description,
       'place': place, //todo: either get place from dropdown or from input
       'timestamp': Timestamp.now(), //todo: format date from input
-      'type': type,  //todo: get type from dropdown
-      'organiser': organiser,
+      'type': type, //todo: get type from dropdown
+      'organiser': organiserEmail,
     };
   }
 }
