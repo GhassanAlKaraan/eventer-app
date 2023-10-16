@@ -14,8 +14,8 @@ class EventDetailsPage extends StatefulWidget {
 class _EventDetailsPageState extends State<EventDetailsPage> {
   //*
   FirestoreService firestoreService = FirestoreService();
-  Map<String, dynamic> map = {}; //event data
-  Map<String, dynamic> user = {}; //organiser data
+  Map<String, dynamic> _event = {}; //event data
+  Map<String, dynamic> _organiser = {}; //organiser data
   //*
   @override
   void initState() {
@@ -26,11 +26,11 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
   Future<void> loadData() async {
     final eventData = await firestoreService.getEventById(widget.id);
     setState(() {
-      map = eventData;
+      _event = eventData;
     });
-    final userData = await firestoreService.getUserByEmail(map['organiser']);
+    final userData = await firestoreService.getUserByEmail(_event['organiser']);
     setState(() {
-      user = userData;
+      _organiser = userData;
     });
   }
 
@@ -40,23 +40,24 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
       appBar: AppBar(
         title: const Text('Event Details'),
       ),
-      body: map.isEmpty || user.isEmpty
+      body: _event.isEmpty || _organiser.isEmpty
           ? const Center(child: CircularProgressIndicator())
-          : Center(
-              //todo: replace with details_card when it's ready
-              child: Column(
+          : Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: //DetailsCard(eventDetails: _event, organiserDetails: _organiser),
+              Column( //todo: replace with details card
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(map['title'], style: kTxtStyle2),
-                  Text(map['description'], style: kTxtStyle2),
+                  Text(_event['title'], style: kTxtStyle2),
+                  Text(_event['description'], style: kTxtStyle2),
                   Flexible(
                       child:
-                          Text(map['timestamp'].toString(), style: kTxtStyle2)),
-                  Text(map['place'], style: kTxtStyle2),
-                  Text(map['type'], style: kTxtStyle2),
-                  Text(map['organiser'], style: kTxtStyle2),
-                  Text(user['firstName'], style: kTxtStyle2),
-                  Text(user['phoneNumber'], style: kTxtStyle2),
+                          Text(_event['timestamp'].toString(), style: kTxtStyle2)),
+                  Text(_event['place'], style: kTxtStyle2),
+                  Text(_event['type'], style: kTxtStyle2),
+                  Text(_event['organiser'], style: kTxtStyle2),
+                  Text(_organiser['firstName'], style: kTxtStyle2),
+                  Text(_organiser['phoneNumber'], style: kTxtStyle2),
                 ],
               ),
             ),

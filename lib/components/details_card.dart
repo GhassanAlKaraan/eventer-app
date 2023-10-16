@@ -1,13 +1,13 @@
+import 'package:eventer/utility/constants.dart';
 import 'package:flutter/material.dart';
-import '../models/event_model.dart';
 
 //todo: design the details card
 
 class DetailsCard extends StatelessWidget {
+  final Map<String, dynamic> eventDetails;
+  final Map<String, dynamic> organiserDetails;
 
-  final EventModel event;
-
-  const DetailsCard({super.key, required this.event});
+  const DetailsCard({super.key, required this.eventDetails, required this.organiserDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -25,31 +25,16 @@ class DetailsCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            event.title,
-            style: const TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 8.0),
-          Text(
-            event.timestamp.toString(),
-            style: const TextStyle(
-              fontSize: 16.0,
-              color: Colors.grey,
-            ),
-          ),
-          const SizedBox(height: 16.0),
-          Text(
-            event.description,
-            style: const TextStyle(
-              fontSize: 18.0,
-            ),
-          ),
+          Text("1", style: kTxtStyle2),
+          Text("2", style: kTxtStyle2),
+          Text("3", style: kTxtStyle2),
+          Text("4", style: kTxtStyle2),
+          Text("5", style: kTxtStyle2),
+          Text("6", style: kTxtStyle2),
+          Text("7", style: kTxtStyle2),
         ],
       ),
     );

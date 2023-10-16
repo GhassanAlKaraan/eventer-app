@@ -57,7 +57,7 @@ class FirestoreService {
   //********** Working with Users **********//
 
   ///Users collection
-  CollectionReference _users = FirebaseFirestore.instance.collection('users');
+  final CollectionReference _users = FirebaseFirestore.instance.collection('users');
 
   ///CREATE user
   Future createUser(UserModel user) async {
@@ -73,7 +73,12 @@ class FirestoreService {
   ///READ user
   Future<Map<String, dynamic>> getUserByEmail(String email) async {
     DocumentSnapshot ds = await _users.doc(email).get();
-    final Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
-    return data;
+    try {
+      final Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
+      return data;
+    } catch (e) { // In case the data in firestore is badly formatted
+      print(e);
+      return {};
+    }
   }
 }
